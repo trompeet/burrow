@@ -1,4 +1,6 @@
-# Kiwix Reader (working name)
+<img src="docs/icon.png" alt="Burrow icon" width="96" align="right">
+
+# Burrow
 
 A native Android app (Kotlin) for reading Kiwix ZIM files, browsing remote `kiwix-serve` instances (with a page
 cache and offline copies), and reading EPUB/TXT/HTML books such as Project Gutenberg titles.
@@ -55,7 +57,7 @@ stability annotations that AndroidX libraries depend on. It contains no Compose 
 
 ```bash
 ./gradlew installDebug installDebugAndroidTest
-adb shell am instrument -w -e class app.kiwixreader.LocalKiwixServe -e zim /sdcard/Android/data/app.kiwixreader/files/zim/some.zim -e minutes 20 app.kiwixreader.test/androidx.test.runner.AndroidJUnitRunner
+adb shell am instrument -w -e class app.burrow.LocalKiwixServe -e zim /sdcard/Android/data/app.burrow/files/zim/some.zim -e minutes 20 app.burrow.test/androidx.test.runner.AndroidJUnitRunner
 ```
 
 Then add `http://127.0.0.1:8099` in the Servers tab. Use a ZIM in the app's own storage (see "Storage access").
@@ -64,8 +66,8 @@ A real `kiwix-serve` on your LAN works the same way: `kiwix-serve -p 8080 *.zim`
 ## Architecture
 
 ```
-app/src/main/java/app/kiwixreader/
-  KiwixReaderApp.kt     Application + AppContainer (manual DI, native lib loading, ICU data)
+app/src/main/java/app/burrow/
+  BurrowApp.kt     Application + AppContainer (manual DI, native lib loading, ICU data)
   data/                 Room entities/DAOs (library, servers, bookmarks, offline index, books), DataStore settings
   net/                  HttpStack (OkHttp + disk cache + basic auth), CachePolicy, RemoteFetcher, cookie bridge
   remote/               kiwix-serve API URLs, OPDS parser, search-results parser, ServerRepository
@@ -77,7 +79,7 @@ app/src/main/java/app/kiwixreader/
 
 * **ZIM reading** goes through libkiwix's Android bindings (`org.kiwix:libkiwix:2.7.0`, the same artifact and
   version as kiwix-android). Pages are served to a WebView from a reserved, never-resolving host
-  (`https://zim.kiwixreader.invalid/…`). Any request to another host is blocked, so a local ZIM causes no network
+  (`https://zim.burrow.invalid/…`). Any request to another host is blocked, so a local ZIM causes no network
   traffic. Search uses the full-text index when the ZIM has one and title suggestions otherwise.
 * **kiwix-serve endpoints** (see kiwix-tools `docs/kiwix-serve.rst`): the OPDS v2 catalog
   `/catalog/v2/entries?start=&count=&q=` (paged, 50 per page, server-side search) and full-text search
@@ -118,7 +120,7 @@ deals with the same limitation (kiwix/kiwix-android#3636). I also tried wrapping
 So ZIM files in a picked folder are still found and listed. When one cannot be read in place, its row says **Needs
 file access**, and tapping it offers two options:
 
-1. **Copy to app** copies the file into the app's own storage (`Android/data/app.kiwixreader/files/zim`), which
+1. **Copy to app** copies the file into the app's own storage (`Android/data/app.burrow/files/zim`), which
    libkiwix can read. No extra permission is needed, but the file then takes up space twice.
 2. **Allow access** opens Android's "All files access" setting (`MANAGE_EXTERNAL_STORAGE`; on Android 8–10, the
    legacy storage permission). ZIMs are then opened in place by their real path, as kiwix-android's
@@ -142,8 +144,8 @@ app folder over USB, always work.
 
 ## Assumptions and decisions
 
-* **Name and IDs**: "Kiwix Reader", application ID `app.kiwixreader`. I avoided the `org.kiwix` namespace, which
-  belongs to the official project.
+* **Name and IDs**: "Burrow" (kiwis live in burrows; this is a burrow for your offline library), application ID
+  `app.burrow`. "Kiwix" is the official project's name, so it is not used in the app name or package.
 * **SDK**: minSdk 26, compile and target SDK 37 (Android 17, the latest stable). AGP 9.5.1 with built-in Kotlin
   2.4.21, KSP 2.3.13, Gradle 9.9.1.
 * **UI stack**: XML layouts with ViewBinding and Material Components 1.14 (pre-M3 themes only), and fragments in a
@@ -162,7 +164,7 @@ app folder over USB, always work.
   long-pressing it.
 * **Remote search** uses kiwix-serve's full-text endpoint, so it returns nothing for books without a full-text index.
 * **Offline save** captures what the page references statically. Content that scripts load later is not saved.
-* **Downloads** keep the server's file name and are stored under `Android/data/app.kiwixreader/files/zim`.
+* **Downloads** keep the server's file name and are stored under `Android/data/app.burrow/files/zim`.
 * **E-reader**: images in books are skipped (text only). EPUB tables of contents come from the EPUB 3 nav document,
   then the NCX, then the headings. TXT chapters are detected from heading lines ("CHAPTER I.", "Book Two", "Stave
   III" and similar). Hard-wrapped lines are joined into paragraphs, while blocks of short or indented lines (verse,

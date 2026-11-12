@@ -8,4 +8,4 @@
     android:paddingTop="20dp"
     android:paddingEnd="16dp"
     android:paddingBottom="4dp"
-    android:textAppearance="@style/TextAppearance.KiwixReader.SectionHeader" />
+    android:textAppearance="@style/TextAppearance.Burrow.SectionHeader" />

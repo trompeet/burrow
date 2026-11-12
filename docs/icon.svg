@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" width="108" height="108">
+  <rect width="108" height="108" fill="#000000"/>
+  <!-- star -->
+  <path fill="#90caf9" d="M73,33 L74.6,37.4 L79,39 L74.6,40.6 L73,45 L71.4,40.6 L67,39 L71.4,37.4 Z"/>
+  <!-- mound -->
+  <path fill="#1565c0" d="M26,72 A28,28 0 0 1 82,72 Z"/>
+  <path fill="#42a5f5" d="M33,72 A21,21 0 0 1 75,72 Z"/>
+  <!-- doorway -->
+  <path fill="#000000" d="M39,72 A15,15 0 0 1 69,72 Z"/>
+  <!-- open book -->
+  <path fill="#fafafa" d="M45,62.5 C48,61 51,61 53.4,62.5 L53.4,70.5 C51,69 48,69 45,70.5 Z"/>
+  <path fill="#fafafa" d="M54.6,62.5 C57,61 60,61 63,62.5 L63,70.5 C60,69 57,69 54.6,70.5 Z"/>
+  <!-- ground -->
+  <rect x="26" y="72" width="56" height="3.5" rx="1.75" fill="#fafafa"/>
+</svg>

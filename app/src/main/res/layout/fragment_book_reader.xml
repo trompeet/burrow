@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <app.kiwixreader.ui.books.PageView
+    <app.burrow.ui.books.PageView
         android:id="@+id/page"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

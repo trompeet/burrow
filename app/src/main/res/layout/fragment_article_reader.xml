@@ -60,31 +60,31 @@
 
         <ImageButton
             android:id="@+id/back"
-            style="@style/Widget.KiwixReader.ReaderBarButton"
+            style="@style/Widget.Burrow.ReaderBarButton"
             android:contentDescription="@string/back"
             android:src="@drawable/ic_arrow_back" />
 
         <ImageButton
             android:id="@+id/home"
-            style="@style/Widget.KiwixReader.ReaderBarButton"
+            style="@style/Widget.Burrow.ReaderBarButton"
             android:contentDescription="@string/home"
             android:src="@drawable/ic_home" />
 
         <ImageButton
             android:id="@+id/bookmark"
-            style="@style/Widget.KiwixReader.ReaderBarButton"
+            style="@style/Widget.Burrow.ReaderBarButton"
             android:contentDescription="@string/add_bookmark"
             android:src="@drawable/ic_bookmark_border" />
 
         <ImageButton
             android:id="@+id/bookmarks"
-            style="@style/Widget.KiwixReader.ReaderBarButton"
+            style="@style/Widget.Burrow.ReaderBarButton"
             android:contentDescription="@string/bookmarks"
             android:src="@drawable/ic_bookmarks" />
 
         <ImageButton
             android:id="@+id/forward"
-            style="@style/Widget.KiwixReader.ReaderBarButton"
+            style="@style/Widget.Burrow.ReaderBarButton"
             android:contentDescription="@string/forward"
             android:src="@drawable/ic_arrow_forward" />
     </LinearLayout>

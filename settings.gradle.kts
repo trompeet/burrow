@@ -14,5 +14,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "KiwixReader"
+rootProject.name = "Burrow"
 include(":app")

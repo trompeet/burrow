@@ -3,13 +3,13 @@
     <attr name="statusOnline" format="color" />
     <attr name="statusOffline" format="color" />
 
-    <style name="Widget.KiwixReader.Toolbar" parent="Widget.MaterialComponents.Toolbar.PrimarySurface">
+    <style name="Widget.Burrow.Toolbar" parent="Widget.MaterialComponents.Toolbar.PrimarySurface">
         <item name="android:background">@color/black</item>
         <item name="titleTextColor">@color/alabaster_white</item>
         <item name="android:elevation">0dp</item>
     </style>
 
-    <style name="Widget.KiwixReader.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
+    <style name="Widget.Burrow.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
         <item name="backgroundTint">@color/black</item>
         <item name="itemIconTint">@color/bottom_navigation_selector</item>
         <item name="itemTextColor">@color/bottom_navigation_selector</item>
@@ -17,13 +17,13 @@
         <item name="elevation">0dp</item>
     </style>
 
-    <style name="Widget.KiwixReader.Button" parent="Widget.MaterialComponents.Button">
+    <style name="Widget.Burrow.Button" parent="Widget.MaterialComponents.Button">
         <item name="backgroundTint">@color/denim_blue800</item>
         <item name="android:textColor">@color/white</item>
     </style>
 
     <!-- Black bottom bar in the article reader, like the kiwix-android reader. -->
-    <style name="Widget.KiwixReader.ReaderBarButton" parent="Widget.AppCompat.ImageButton">
+    <style name="Widget.Burrow.ReaderBarButton" parent="Widget.AppCompat.ImageButton">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">48dp</item>
         <item name="android:layout_weight">1</item>
@@ -31,7 +31,7 @@
         <item name="tint">@color/reader_bar_icon</item>
     </style>
 
-    <style name="TextAppearance.KiwixReader.SectionHeader" parent="TextAppearance.MaterialComponents.Subtitle2">
+    <style name="TextAppearance.Burrow.SectionHeader" parent="TextAppearance.MaterialComponents.Subtitle2">
         <item name="android:textColor">?attr/colorPrimary</item>
     </style>
 </resources>

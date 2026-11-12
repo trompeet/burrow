@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Kiwix Reader</string>
+    <string name="app_name">Burrow</string>
 
     <!-- Tabs -->
     <string name="tab_library">Library</string>
@@ -141,6 +141,6 @@
     <string name="clear_cache_question">Clear all cached pages? Articles saved for offline are kept.</string>
     <string name="offline_usage">Saved articles use</string>
     <string name="about">About</string>
-    <string name="version">Kiwix Reader %1$s</string>
+    <string name="version">Burrow %1$s</string>
     <string name="about_text">Reads ZIM files with libkiwix and books from your device. No accounts, analytics, ads or tracking: the app only connects to servers you add.</string>
 </resources>
