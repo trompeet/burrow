@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            style="@style/TextAppearance.KiwixReader.SectionHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/font_size" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/fontSize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/font_size"
+            android:stepSize="1"
+            android:valueFrom="12"
+            android:valueTo="32" />
+
+        <TextView
+            style="@style/TextAppearance.KiwixReader.SectionHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/font" />
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/fontGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fontSerif"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="serif"
+                android:text="@string/font_serif" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fontSans"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif"
+                android:text="@string/font_sans" />
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <TextView
+            style="@style/TextAppearance.KiwixReader.SectionHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/line_spacing" />
+
+        <!-- Tenths: 10 = 1.0x, 20 = 2.0x. -->
+        <com.google.android.material.slider.Slider
+            android:id="@+id/lineSpacing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/line_spacing"
+            android:stepSize="1"
+            android:valueFrom="10"
+            android:valueTo="20" />
+
+        <TextView
+            style="@style/TextAppearance.KiwixReader.SectionHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/margins" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/margins"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/margins"
+            android:stepSize="4"
+            android:valueFrom="8"
+            android:valueTo="48" />
+
+        <TextView
+            style="@style/TextAppearance.KiwixReader.SectionHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/reader_theme" />
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/themeGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/themeLight"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/theme_light" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/themeSepia"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/theme_sepia" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/themeDark"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/theme_dark" />
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+    </LinearLayout>
+</ScrollView>

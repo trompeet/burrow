@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <WebView
+            android:id="@+id/webView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/pageProgress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/message"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?android:attr/colorBackground"
+            android:gravity="center"
+            android:padding="32dp"
+            android:textAppearance="?attr/textAppearanceBody1"
+            android:visibility="gone" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/searchResults"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?android:attr/colorBackground"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/noResults"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="32dp"
+            android:text="@string/no_results"
+            android:textAppearance="?attr/textAppearanceBody1"
+            android:textColor="?android:attr/textColorSecondary"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <!-- Black bottom bar as in the kiwix-android reader. -->
+    <LinearLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/black"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/back"
+            style="@style/Widget.KiwixReader.ReaderBarButton"
+            android:contentDescription="@string/back"
+            android:src="@drawable/ic_arrow_back" />
+
+        <ImageButton
+            android:id="@+id/home"
+            style="@style/Widget.KiwixReader.ReaderBarButton"
+            android:contentDescription="@string/home"
+            android:src="@drawable/ic_home" />
+
+        <ImageButton
+            android:id="@+id/bookmark"
+            style="@style/Widget.KiwixReader.ReaderBarButton"
+            android:contentDescription="@string/add_bookmark"
+            android:src="@drawable/ic_bookmark_border" />
+
+        <ImageButton
+            android:id="@+id/bookmarks"
+            style="@style/Widget.KiwixReader.ReaderBarButton"
+            android:contentDescription="@string/bookmarks"
+            android:src="@drawable/ic_bookmarks" />
+
+        <ImageButton
+            android:id="@+id/forward"
+            style="@style/Widget.KiwixReader.ReaderBarButton"
+            android:contentDescription="@string/forward"
+            android:src="@drawable/ic_arrow_forward" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/action_toc" android:icon="@drawable/ic_toc" android:title="@string/contents" app:showAsAction="ifRoom" />
+    <item android:id="@+id/action_reader_settings" android:icon="@drawable/ic_text_format" android:title="@string/reading_settings" app:showAsAction="ifRoom" />
+    <item android:id="@+id/action_bookmarks" android:icon="@drawable/ic_bookmarks" android:title="@string/bookmarks" app:showAsAction="ifRoom" />
+    <item android:id="@+id/action_add_bookmark" android:title="@string/add_bookmark" app:showAsAction="never" />
+</menu>

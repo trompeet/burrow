@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/action_add_folder" android:icon="@drawable/ic_add" android:title="@string/add_folder" app:showAsAction="ifRoom" />
+    <item android:id="@+id/action_rescan" android:icon="@drawable/ic_refresh" android:title="@string/rescan" app:showAsAction="ifRoom" />
+    <item android:id="@+id/action_folders" android:title="@string/folders" app:showAsAction="never" />
+    <item android:id="@+id/action_settings" android:title="@string/settings" app:showAsAction="never" />
+</menu>
