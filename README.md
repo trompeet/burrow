@@ -18,6 +18,20 @@ The look follows the official kiwix-android app: Kiwix palette (`denim_blue800` 
 system setting. It uses XML layouts with **Material Components** (`Theme.MaterialComponents.DayNight`). There is no
 Material 3, no Compose UI and no dynamic colour.
 
+## Install
+
+Download an APK from the [latest release](https://github.com/trompeet/burrow/releases/latest):
+
+| APK | For |
+| --- | --- |
+| `burrow-<version>-arm64-v8a.apk` | Almost all phones and tablets from the last ~8 years |
+| `burrow-<version>-armeabi-v7a.apk` | Older 32-bit ARM devices |
+| `burrow-<version>-x86_64.apk` / `-x86.apk` | Emulators and x86 Chromebooks |
+
+Requires Android 8.0 or later. Open the downloaded file and allow your browser or file manager to install apps
+when Android asks. Releases are signed with the same key, so later versions install as updates; check the
+`SHA256SUMS` file attached to each release if you want to verify the download.
+
 ## Build
 
 Requirements: JDK 17+ (21 tested), Android SDK with platform 37 (Android 17), build-tools 36+. The Gradle wrapper
@@ -34,6 +48,22 @@ libkiwix ships about 50 MB of native code per ABI, so the build produces one APK
 ```bash
 adb install app/build/outputs/apk/debug/app-arm64-v8a-debug.apk
 ```
+
+Signed release APKs (`app/build/outputs/apk/release/`) need a signing properties file outside the repository,
+by default `~/.android/burrow-release.properties`, or pass `-Pburrow.signing=/path/to/file`:
+
+```properties
+storeFile=/path/to/burrow-release.jks
+storePassword=…
+keyAlias=burrow
+keyPassword=…
+```
+
+```bash
+./gradlew assembleRelease
+```
+
+Without that file, `assembleRelease` produces unsigned APKs.
 
 Unit tests (JVM, no device needed):
 
@@ -176,8 +206,7 @@ app folder over USB, always work.
   app storage, so the originals can be deleted.
 * **Database**: schema version 1, exported to `app/schemas/`. There is no migration yet; add one before changing
   the schema after a release.
-* **Licence**: libkiwix is GPL-3.0, so distributing this app requires a GPL-3.0-compatible licence. No licence file
-  is included yet; that choice is yours.
+* **Licence**: GPL-3.0-or-later (see `LICENSE`), matching libkiwix, which the app links.
 
 ## Verification
 
@@ -201,3 +230,12 @@ and Android 8–10.
 
 library.kiwix.org serves its article pages behind an anti-crawler confirmation page. The app shares cookies
 between OkHttp and the WebView so you can pass it yourself, but I did not do so in testing.
+
+## Licence
+
+Burrow is free software, licensed under the GNU General Public License, version 3 or (at your option) any later
+version. See [LICENSE](LICENSE).
+
+It uses libkiwix/libzim (GPL-3.0), ICU data (`assets/icu/icudt58l.dat`, Unicode licence), OkHttp, jsoup and
+AndroidX/Material Components (Apache-2.0 or MIT). The colour palette follows the kiwix-android app. Burrow is not
+affiliated with or endorsed by the Kiwix project.

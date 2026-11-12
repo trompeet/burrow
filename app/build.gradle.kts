@@ -1,7 +1,17 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.ksp)
 }
+
+// Release signing comes from a properties file outside the repository (storeFile, storePassword, keyAlias,
+// keyPassword). Default: ~/.android/burrow-release.properties; override with -Pburrow.signing=/path/to/file.
+// Without the file, release builds are produced unsigned.
+val releaseSigning: Properties? =
+    file((findProperty("burrow.signing") as String?) ?: "${System.getProperty("user.home")}/.android/burrow-release.properties")
+        .takeIf { it.isFile }
+        ?.let { source -> Properties().apply { source.inputStream().use { load(it) } } }
 
 android {
     namespace = "app.burrow"
@@ -16,9 +26,22 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        releaseSigning?.let { props ->
+            create("release") {
+                storeFile = file(props.getProperty("storeFile"))
+                storePassword = props.getProperty("storePassword")
+                keyAlias = props.getProperty("keyAlias")
+                keyPassword = props.getProperty("keyPassword")
+            }
+        }
+    }
+
     buildTypes {
         release {
+            // No R8: libkiwix is called through JNI and the APK size is dominated by its native libraries.
             isMinifyEnabled = false
+            signingConfig = signingConfigs.findByName("release")
         }
     }
 
